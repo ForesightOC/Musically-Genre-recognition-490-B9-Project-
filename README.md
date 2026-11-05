@@ -1,6 +1,6 @@
 # Music Genre Recognition on FMA-small
 
-**Author:** <your name> · CSCI 490-B9 Deep Learning, NIU, Fall 2026
+**Author:** Osabo Christopher · CSCI 490-B9 Deep Learning, NIU, Fall 2026
 
 **AI tool use:** Claude Code (Claude Opus 5.5) set up Git and GitHub, changed how `level0_fma.py` saves its results, wrote `data_check.py`, adapted `AGENTS.md`, and filled in the README's data and Level 0 tables from the files in `results/`. <add who wrote the first version of `level0_fma.py`, and any other tools you used and for what>
 
