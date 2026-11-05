@@ -11,19 +11,17 @@ next to this script.
 Run:
     pip install numpy pandas scikit-learn
     python level0_fma.py
-Writes results/level0_fma_metrics.json and results/level0_fma_confusion.csv.
+Writes results/level0_fma_val.json and results/level0_fma_test.json.
 """
-import json
-import os
-
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
+from mustcite import save_results
+
 META = "fma_metadata"
-OUT = "results"
 SEED = 0
 
 # --- load metadata (both files have multi-row headers) ---
@@ -78,33 +76,30 @@ model = make_pipeline(
     LogisticRegression(C=best_c, max_iter=5000, random_state=SEED),
 )
 model.fit(X_tr, y_tr)
-pred_va, pred_te = model.predict(X_va), model.predict(X_te)
 
 labels = sorted(genre.unique())
-metrics = {
+config = {
     "task": "FMA-small genre classification",
     "model": "Level 0: StandardScaler + LogisticRegression on MFCC summary features",
     "C": best_c,
+    "seed": SEED,
     "n_train": int(len(y_tr)),
     "n_val": int(len(y_va)),
     "n_test": int(len(y_te)),
     "artists_shared_between_splits": overlap,
-    "val_accuracy": round(accuracy_score(y_va, pred_va), 4),
-    "val_macro_f1": round(f1_score(y_va, pred_va, average="macro"), 4),
-    "test_accuracy": round(accuracy_score(y_te, pred_te), 4),
-    "test_macro_f1": round(f1_score(y_te, pred_te, average="macro"), 4),
-    "chance_accuracy": round(1 / len(labels), 4),
+    "chance_accuracy": 1 / len(labels),
 }
 
-os.makedirs(OUT, exist_ok=True)
-with open(f"{OUT}/level0_fma_metrics.json", "w") as f:
-    json.dump(metrics, f, indent=2)
-cm = pd.DataFrame(
-    confusion_matrix(y_te, pred_te, labels=labels),
-    index=[f"true_{l}" for l in labels],
-    columns=[f"pred_{l}" for l in labels],
-)
-cm.to_csv(f"{OUT}/level0_fma_confusion.csv")
 
-print(json.dumps(metrics, indent=2))
-print("\nTest confusion matrix:\n", cm)
+def evaluate(y_true, y_pred):
+    """Same metrics and keys as evaluate_a in mustcite.py, which only knows the MustCite venues."""
+    return {
+        "accuracy": accuracy_score(y_true, y_pred),
+        "macro_f1": f1_score(y_true, y_pred, average="macro"),
+        "confusion_matrix": confusion_matrix(y_true, y_pred, labels=labels).tolist(),
+        "labels": labels,
+    }
+
+
+save_results("level0_fma_val", evaluate(y_va, model.predict(X_va)), config)
+save_results("level0_fma_test", evaluate(y_te, model.predict(X_te)), config)

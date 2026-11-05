@@ -1,0 +1,115 @@
+{
+  "name": "level0_fma_test",
+  "time": "2026-11-05 11:43:00",
+  "config": {
+    "task": "FMA-small genre classification",
+    "model": "Level 0: StandardScaler + LogisticRegression on MFCC summary features",
+    "C": 0.01,
+    "seed": 0,
+    "n_train": 6400,
+    "n_val": 800,
+    "n_test": 800,
+    "artists_shared_between_splits": {
+      "train_val": 0,
+      "train_test": 0,
+      "val_test": 0
+    },
+    "chance_accuracy": 0.125
+  },
+  "metrics": {
+    "accuracy": 0.41625,
+    "macro_f1": 0.41128302690415575,
+    "confusion_matrix": [
+      [
+        54,
+        3,
+        3,
+        18,
+        2,
+        11,
+        8,
+        1
+      ],
+      [
+        11,
+        28,
+        10,
+        3,
+        19,
+        11,
+        10,
+        8
+      ],
+      [
+        0,
+        12,
+        18,
+        0,
+        10,
+        23,
+        29,
+        8
+      ],
+      [
+        13,
+        6,
+        3,
+        63,
+        3,
+        7,
+        2,
+        3
+      ],
+      [
+        4,
+        8,
+        25,
+        4,
+        42,
+        1,
+        6,
+        10
+      ],
+      [
+        10,
+        4,
+        23,
+        10,
+        4,
+        39,
+        8,
+        2
+      ],
+      [
+        20,
+        2,
+        11,
+        14,
+        5,
+        10,
+        26,
+        12
+      ],
+      [
+        1,
+        11,
+        4,
+        3,
+        5,
+        3,
+        10,
+        63
+      ]
+    ],
+    "labels": [
+      "Electronic",
+      "Experimental",
+      "Folk",
+      "Hip-Hop",
+      "Instrumental",
+      "International",
+      "Pop",
+      "Rock"
+    ]
+  }
+}
