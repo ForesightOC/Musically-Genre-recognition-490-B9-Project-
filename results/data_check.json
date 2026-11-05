@@ -1,0 +1,76 @@
+{
+  "name": "data_check",
+  "time": "2026-11-05 11:43:19",
+  "config": {
+    "subset": "small",
+    "clip_seconds": 30
+  },
+  "metrics": {
+    "examples_per_genre_and_split": {
+      "Electronic": {
+        "training": 800,
+        "validation": 100,
+        "test": 100
+      },
+      "Experimental": {
+        "training": 800,
+        "validation": 100,
+        "test": 100
+      },
+      "Folk": {
+        "training": 800,
+        "validation": 100,
+        "test": 100
+      },
+      "Hip-Hop": {
+        "training": 800,
+        "validation": 100,
+        "test": 100
+      },
+      "Instrumental": {
+        "training": 800,
+        "validation": 100,
+        "test": 100
+      },
+      "International": {
+        "training": 800,
+        "validation": 100,
+        "test": 100
+      },
+      "Pop": {
+        "training": 800,
+        "validation": 100,
+        "test": 100
+      },
+      "Rock": {
+        "training": 800,
+        "validation": 100,
+        "test": 100
+      }
+    },
+    "total_per_split": {
+      "training": 6400,
+      "validation": 800,
+      "test": 800
+    },
+    "artists_per_split": {
+      "training": 1888,
+      "validation": 219,
+      "test": 202
+    },
+    "artists_shared_between_splits": {
+      "train_val": 0,
+      "train_test": 0,
+      "val_test": 0
+    },
+    "albums_shared_between_splits": {
+      "train_val": 58,
+      "train_test": 49,
+      "val_test": 21
+    },
+    "tracks_without_features": 0,
+    "tracks_with_missing_mfcc": 0,
+    "tracks_without_genre": 0,
+    "tracks_shorter_than_clip": {}
+  }
+}
