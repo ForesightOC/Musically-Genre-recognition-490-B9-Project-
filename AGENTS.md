@@ -5,20 +5,19 @@ of every session and follow it. If a request conflicts with these rules, say so 
 
 ## The project
 
-- Task: <!-- write A, B or C and one sentence, e.g. "Task A: predict the venue of a paper from its title and abstract" -->
-- Data: MustCite-Mini in `data/`. Load it only through the `load_*` functions in `mustcite.py`.
+- Task: Own task, approved by the professor: predict the top-level genre (8 classes) of a 30-second FMA-small music clip.
+- Data: FMA-small, from `fma_metadata/` (not committed: too large). Take labels and splits only from `tracks.csv`.
 
 ## Data and split
 
-- The split is fixed by year: train = 2020-2023, validation = 2024, test = 2025.
+- The split is the official one in `tracks.csv` (`set`, `split`): 6,400 training, 800 validation, 800 test tracks.
 - Never re-split, shuffle across splits, or move rows between splits. Never train on validation or test rows.
 - Do not edit `mustcite.py` or the files in `data/`.
 
 ## Metrics
 
-- Score every model with the matching function in `mustcite.py`: `evaluate_a`, `evaluate_b` or `evaluate_c`.
-- Task A: accuracy, macro-F1 and the confusion matrix. Task B: precision, recall and F1 of the core class,
-  and ROC-AUC (never accuracy alone). Task C: recall@10 and MRR.
+- Score every model with the same `evaluate` function as `level0_fma.py`, so that all numbers are comparable.
+- Report accuracy, macro-F1 and the confusion matrix: the classes are balanced.
 
 ## The test set is used once
 
