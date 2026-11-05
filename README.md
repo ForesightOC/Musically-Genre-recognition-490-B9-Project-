@@ -1,8 +1,8 @@
-# Music Genre Recognition on FMA-small
+# <your name> – CSCI 490 Course Project: Music Genre Classification (FMA-small)
 
-**Author:** Osabo Christopher · CSCI 490-B9 Deep Learning, NIU, Fall 2026
+CSCI 490-B9 Deep Learning, NIU, Fall 2026
 
-**AI tool use:** Claude Code (Claude Opus 5.5) set up Git and GitHub, changed how `level0_fma.py` saves its results, wrote `data_check.py`, adapted `AGENTS.md`, and filled in the README's data and Level 0 tables from the files in `results/`. <add who wrote the first version of `level0_fma.py`, and any other tools you used and for what>
+**AI tool use:** I used Claude (Anthropic) to choose the dataset, to write the first version of `level0_fma.py`, and to draft parts of this README, which I edited. Claude Code (Claude Opus 5.5) in VS Code set up Git and GitHub, changed how `level0_fma.py` saves its results, wrote `data_check.py`, adapted `AGENTS.md`, filled in the README's data and Level 0 tables from the files in `results/`, and ran `level0_fma.py` and `data_check.py` to produce the committed results. Every number here comes from a file in `results/`. I can explain every line of the code.
 
 ## 1. Task
 
@@ -12,7 +12,7 @@ The input is a 30-second music clip, and the output is one of 8 top-level genres
 
 ## 2. Motivation
 
-<Who would use this, and what makes it hard? Three to five sentences.>
+Music platforms that accept uploads, such as the Free Music Archive, rely on artists to tag their own tracks, and those tags are often missing or inconsistent. A model that predicts genre from the audio could suggest or check tags at upload time, and help recommend new tracks that have no listening history yet. The task is hard because genre is defined by people, not by the sound alone: Experimental, International and Pop are broad categories that overlap with the others. The model also has to work on artists it has never heard, which is why my split keeps each artist in one set. My Level 0 baseline shows the difficulty: 50.3% on validation but 41.6% on test, against 12.5% for guessing.
 
 ## 3. Data
 
@@ -50,27 +50,37 @@ Three examples of each class are in [samples.md](samples.md). <What did you noti
 
 | Level | Model | Expected accuracy on validation |
 |---|---|---:|
-| 1 | <a neural model you train> | <number> |
-| 2 | <a pretrained Transformer, fine-tuned> | <number> |
+| 1 | CNN trained on log-mel spectrograms | 52–55% |
+| 2 | Audio Spectrogram Transformer (AST), fine-tuned | 60–65% |
 | 3 | The question below | – |
 
-**Level 3 question:** <your question about the gap between validation and test accuracy, and the evidence that would answer it>
+**Level 1:** a CNN I train myself on log-mel spectrograms (128 mel bins, 10-second crops, computed once with torchaudio and cached). I expect about 52–55% validation accuracy: a little better than Level 0, because the CNN sees how the sound changes over time instead of 140 summary numbers, but limited by the small training set (6,400 clips).
+
+**Level 2:** the Audio Spectrogram Transformer (AST), `MIT/ast-finetuned-audioset-10-10-0.4593` from Hugging Face, pretrained on AudioSet and fine-tuned on my training split. I expect about 60–65% validation accuracy, because AudioSet pretraining already includes music and instruments. Published FMA-small results go much higher, but many use different splits, so I don't expect to match them.
+
+**Level 3 question:** Why is test accuracy about 9 points below validation (50.3% vs 41.6%), and does the gap shrink with a better model?
+
+Evidence that would answer it:
+
+- **Is it noise?** Bootstrap the 800 validation and 800 test predictions (resample 1,000 times) to get a confidence interval for the gap. If the interval includes about 0, the gap is mostly chance.
+- **Which genres drop?** Compare per-genre accuracy and the confusion matrices on validation and test. If the drop is concentrated in Experimental, International and Pop, the gap comes from broad labels, not from the model.
+- **Are the splits different?** Compare validation and test metadata in `tracks.csv`: number of artists, tracks per artist, upload date. For example, a test set dominated by a few unusual artists would explain a drop.
+- **Does it persist?** Measure the same gap for Level 1 and Level 2. If it stays about the same, it's in the data; if it shrinks, the baseline features were the limit.
 
 ## 5. Evaluation
 
-I report accuracy, macro-F1 and the confusion matrix. Models, hyperparameters and epochs are chosen on the validation split only, and each final model is evaluated once on the test split.
+The classes are balanced (100 clips per genre in validation and test), so accuracy is meaningful, and I compare it with chance at 12.5%. I also report macro-F1, which weights every genre equally and would reveal a model that ignores one genre, and the confusion matrix, because which genres get confused is the core of my Level 3 question. I choose all models, hyperparameters and epochs on validation and evaluate each final model once on test. Success: Level 2 beats Level 0 on validation by at least 10 points, and I can answer the Level 3 question with the evidence above, whichever way it comes out.
 
-<Say why these metrics fit this task, and what counts as success.>
 
 ## 6. Plan
 
 | Week | What I will do |
 |---|---|
-| 11/2 – 11/8 | <...> |
-| 11/9 – 11/15 | <...> |
-| 11/16 – 11/22 | <...> (progress report 11/19: Level 1) |
-| 11/23 – 11/29 | <...> |
-| 11/30 – 12/3 | <...> (presentation: Level 2) |
+| 11/6 – 11/12 | Decode the audio once and cache 10-second log-mel spectrograms; write the PyTorch Dataset and training loop; get a first CNN run on Colab |
+| 11/13 – 11/19 | Tune the CNN on validation (learning rate, dropout, epochs); evaluate once on test; progress report 11/19 with Level 1 in the results table |
+| 11/20 – 11/26 | Fine-tune AST on Colab within the 30-minute limit; start the Level 3 analysis (bootstrap interval, per-genre accuracy for Levels 0 and 1) (Thanksgiving week, lighter) |
+| 11/27 – 12/1 | Evaluate AST once on test; finish the Level 3 comparison across all three levels; make the slides; presentation 12/1 |
+| 12/2 – 12/3 | Backup presentation date (12/3); start the IEEE final report |
 
 ## Results
 
