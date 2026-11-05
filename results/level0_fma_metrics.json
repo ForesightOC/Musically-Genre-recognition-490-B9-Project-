@@ -1,0 +1,18 @@
+{
+  "task": "FMA-small genre classification",
+  "model": "Level 0: StandardScaler + LogisticRegression on MFCC summary features",
+  "C": 0.01,
+  "n_train": 6400,
+  "n_val": 800,
+  "n_test": 800,
+  "artists_shared_between_splits": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "val_accuracy": 0.5025,
+  "val_macro_f1": 0.4911,
+  "test_accuracy": 0.4163,
+  "test_macro_f1": 0.4113,
+  "chance_accuracy": 0.125
+}

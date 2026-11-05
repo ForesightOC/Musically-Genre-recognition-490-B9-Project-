@@ -17,3 +17,10 @@ wandb/
 
 # OS files
 .DS_Store
+
+# FMA data: too large for GitHub, download it as described in level0_fma.py
+fma_metadata/
+fma_metadata.zip
+
+# Course handout
+proposal.pdf
