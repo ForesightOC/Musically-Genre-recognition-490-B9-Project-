@@ -1,4 +1,4 @@
-# <your name> – CSCI 490 Course Project: Music Genre Classification (FMA-small)
+# Osabo Christopher – CSCI 490 Course Project: Music Genre Classification (FMA-small)
 
 CSCI 490-B9 Deep Learning, NIU, Fall 2026
 
