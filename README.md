@@ -16,7 +16,7 @@ Music platforms that accept uploads, such as the Free Music Archive, rely on art
 
 ## 3. Data
 
-The data is FMA-small from the Free Music Archive dataset (Defferrard et al., ISMIR 2017, https://github.com/mdeff/fma): 8,000 clips of 30 seconds, balanced across 8 genres, about 7.2 GB of audio. The dataset's metadata is licensed CC BY 4.0, and each audio track keeps its own license from its artist.
+The data is FMA-small from the Free Music Archive dataset (Defferrard et al., ISMIR 2017, https://github.com/mdeff/fma): 8,000 clips of 30 seconds, balanced across 8 genres, 7.2 GiB of audio. The dataset's metadata is licensed CC BY 4.0, and each audio track keeps its own license from its artist.
 
 I use the official split in `tracks.csv`, so results can be compared directly with the published baselines. No artist appears in more than one split, which `data_check.py` confirms by artist id, so a model cannot score well by recognizing an artist it has already heard.
 
