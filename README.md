@@ -36,7 +36,7 @@ Output of `data_check.py` (saved in `results/data_check.json`):
 
 Other checks from the same file: no track is missing its features, MFCC values or genre label, and no track is shorter than 30 seconds in the metadata. Albums do cross splits (58 train/validation, 49 train/test, 21 validation/test). Because no artist crosses splits, these must be albums with several artists, such as compilations. The metadata cannot show corrupted audio, so I will check the clips themselves when I build the log-mel spectrograms.
 
-Three examples of each class are in [samples.md](samples.md). <What did you notice when you read them? Write this after reading the file yourself.>
+Three examples of each class are in [samples.md](samples.md). When I read them, I noticed that some artists dominate some genres. All three Instrumental samples are by Blue Dot Sessions, and two of the three Folk samples come from one James Beaudreau album. This could lead the model to learn an artist instead of a genre, which would not carry over to validation and test, where every artist is new. Some clips may also not sound like their label: one Hip-Hop sample is an a cappella (vocals only), and one Pop sample was recorded live on the radio and is titled "Interview". I will measure how many training clips the top artists contribute to each genre, and use it as evidence for my Level 3 question.
 
 ## 4. Method
 
