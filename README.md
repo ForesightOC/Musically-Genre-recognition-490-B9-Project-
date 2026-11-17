@@ -46,7 +46,7 @@ Three examples of each class are in [samples.md](samples.md). When I read them, 
 |---|---:|---:|---:|---:|
 | Level 0: logistic regression on MFCC summary features, C = 0.01 | 0.5025 | 0.4911 | 0.4163 | 0.4113 |
 
-**Plan for the next levels.** For each, the number you expect:
+**Plan for the next levels.**
 
 | Level | Model | Expected accuracy on validation |
 |---|---|---:|

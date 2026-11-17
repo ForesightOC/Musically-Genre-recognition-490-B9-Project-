@@ -1,0 +1,341 @@
+{
+  "name": "level3_artists",
+  "time": "2026-11-17 11:26:43",
+  "config": {
+    "subset": "small",
+    "top": 5,
+    "source": "tracks.csv metadata only, no predictions"
+  },
+  "metrics": {
+    "per_genre_and_split": {
+      "Electronic": {
+        "test": {
+          "tracks": 100,
+          "artists": 33,
+          "top1_share": 0.15,
+          "top5_share": 0.52,
+          "top_artists": {
+            "Broke For Free": 15,
+            "Goto80": 13,
+            "Ghost By Nature": 10,
+            "Nihilore": 8,
+            "Moon Veil": 6
+          }
+        },
+        "training": {
+          "tracks": 800,
+          "artists": 291,
+          "top1_share": 0.0375,
+          "top5_share": 0.12375,
+          "top_artists": {
+            "SPCZ": 30,
+            "Jason Shaw": 21,
+            "Decktonic": 20,
+            "UncleBibby": 15,
+            "Rolemusic": 13
+          }
+        },
+        "validation": {
+          "tracks": 100,
+          "artists": 36,
+          "top1_share": 0.15,
+          "top5_share": 0.44,
+          "top_artists": {
+            "Azureflux": 15,
+            "Gorowski": 10,
+            "Digi G'Alessio": 8,
+            "Project 5am": 6,
+            "Multifaros": 5
+          }
+        }
+      },
+      "Experimental": {
+        "test": {
+          "tracks": 100,
+          "artists": 44,
+          "top1_share": 0.24,
+          "top5_share": 0.46,
+          "top_artists": {
+            "Lucky Dragons": 24,
+            "Colin Shaddick & Roger Nicholls": 6,
+            "Circus Marcus": 6,
+            "John Badger & The Moustache Riders of Doom": 5,
+            "Squire Tuck": 5
+          }
+        },
+        "training": {
+          "tracks": 800,
+          "artists": 393,
+          "top1_share": 0.0275,
+          "top5_share": 0.105,
+          "top_artists": {
+            "Justice Yeldham": 22,
+            "ODOR BABY": 21,
+            "The Fucked Up Beat": 16,
+            "Monroeville Music Center": 13,
+            "Lezet": 12
+          }
+        },
+        "validation": {
+          "tracks": 100,
+          "artists": 45,
+          "top1_share": 0.29,
+          "top5_share": 0.47,
+          "top_artists": {
+            "File Under Toner": 29,
+            "Fake Cats Project": 6,
+            "Gurdonark": 5,
+            "Derek Baron": 4,
+            "Barmus Dramfell": 3
+          }
+        }
+      },
+      "Folk": {
+        "test": {
+          "tracks": 100,
+          "artists": 9,
+          "top1_share": 0.91,
+          "top5_share": 0.96,
+          "top_artists": {
+            "Big Blood": 91,
+            "Ilyas Ahmed": 2,
+            "Josh Mease": 1,
+            "Funny Cry Happy": 1,
+            "Yves Rakotomalala": 1
+          }
+        },
+        "training": {
+          "tracks": 800,
+          "artists": 215,
+          "top1_share": 0.05625,
+          "top5_share": 0.15625,
+          "top_artists": {
+            "Derek Clegg": 45,
+            "Josh Woodward": 24,
+            "Plusplus": 19,
+            "Kelly Latimore": 19,
+            "Michael Chapman": 18
+          }
+        },
+        "validation": {
+          "tracks": 100,
+          "artists": 25,
+          "top1_share": 0.17,
+          "top5_share": 0.54,
+          "top_artists": {
+            "Josh Armistead": 17,
+            "David Mumford": 15,
+            "Marissa Nadler": 9,
+            "Matt Bauer": 7,
+            "Brock Tyler": 6
+          }
+        }
+      },
+      "Hip-Hop": {
+        "test": {
+          "tracks": 100,
+          "artists": 15,
+          "top1_share": 0.68,
+          "top5_share": 0.87,
+          "top_artists": {
+            "The Impossebulls": 68,
+            "Fleslit": 6,
+            "Asthmatic Astronaut": 5,
+            "Ebsa": 5,
+            "BoyHoodBuchi": 3
+          }
+        },
+        "training": {
+          "tracks": 800,
+          "artists": 162,
+          "top1_share": 0.0525,
+          "top5_share": 0.20125,
+          "top_artists": {
+            "C-Doc": 42,
+            "6th Sense": 33,
+            "Tha Silent Partner": 33,
+            "Alaclair Ensemble": 29,
+            "Black Ant": 24
+          }
+        },
+        "validation": {
+          "tracks": 100,
+          "artists": 17,
+          "top1_share": 0.55,
+          "top5_share": 0.81,
+          "top_artists": {
+            "Kellee Maize": 55,
+            "Heavy Links": 8,
+            "Blank & Kytt": 7,
+            "S.J. Mellia": 6,
+            "Chuzausen": 5
+          }
+        }
+      },
+      "Instrumental": {
+        "test": {
+          "tracks": 100,
+          "artists": 11,
+          "top1_share": 0.5,
+          "top5_share": 0.88,
+          "top_artists": {
+            "Squire Tuck": 50,
+            "Rod Hamilton": 15,
+            "Christian Flanders": 9,
+            "Pianochocolate": 8,
+            "Novi Split": 6
+          }
+        },
+        "training": {
+          "tracks": 800,
+          "artists": 98,
+          "top1_share": 0.26,
+          "top5_share": 0.415,
+          "top_artists": {
+            "Blue Dot Sessions": 208,
+            "Cory Gray": 36,
+            "David Szesztay": 32,
+            "Ergo Phizmiz": 29,
+            "Podington Bear": 27
+          }
+        },
+        "validation": {
+          "tracks": 100,
+          "artists": 11,
+          "top1_share": 0.47,
+          "top5_share": 0.87,
+          "top_artists": {
+            "TRG Banks": 47,
+            "happiness in aeroplanes": 16,
+            "Chase Alan Willis": 11,
+            "Albert Glasser": 7,
+            "Maxim Kornyshev": 6
+          }
+        }
+      },
+      "International": {
+        "test": {
+          "tracks": 100,
+          "artists": 25,
+          "top1_share": 0.27,
+          "top5_share": 0.61,
+          "top_artists": {
+            "Sl\u00e1inte": 27,
+            "Eastern Watershed Klezmer Quartet": 11,
+            "Rakiya": 10,
+            "Terratombats": 7,
+            "F\u00f3sforo": 6
+          }
+        },
+        "training": {
+          "tracks": 800,
+          "artists": 205,
+          "top1_share": 0.03625,
+          "top5_share": 0.1325,
+          "top_artists": {
+            "Turku, Nomads of the Silk Road": 29,
+            "The Sounds of Taraab": 21,
+            "Gogofski": 19,
+            "Yale Women's Slavic Chorus": 19,
+            "Mastermind XS": 18
+          }
+        },
+        "validation": {
+          "tracks": 100,
+          "artists": 25,
+          "top1_share": 0.23,
+          "top5_share": 0.59,
+          "top_artists": {
+            "Black Sea Hotel": 23,
+            "Ehl-i Keyif": 11,
+            "Scott Wilson & Efendi": 10,
+            "DuBoLoGy": 8,
+            "Dana Boul\u00e9": 7
+          }
+        }
+      },
+      "Pop": {
+        "test": {
+          "tracks": 100,
+          "artists": 28,
+          "top1_share": 0.29,
+          "top5_share": 0.6,
+          "top_artists": {
+            "Garmisch": 29,
+            "Wintermitts": 10,
+            "Red Crickets": 8,
+            "Katapulto": 7,
+            "Drama for Yamaha": 6
+          }
+        },
+        "training": {
+          "tracks": 800,
+          "artists": 243,
+          "top1_share": 0.035,
+          "top5_share": 0.125,
+          "top_artists": {
+            "Fierbinteanu": 28,
+            "Maxwell Powers": 24,
+            "Plushgoolash": 17,
+            "Monk Turner": 16,
+            "Ergo Phizmiz": 15
+          }
+        },
+        "validation": {
+          "tracks": 100,
+          "artists": 26,
+          "top1_share": 0.41,
+          "top5_share": 0.67,
+          "top_artists": {
+            "Phemale": 41,
+            "Total Unicorn": 8,
+            "Caleb Lemond": 7,
+            "Supercute": 6,
+            "Elvin Brandhi": 5
+          }
+        }
+      },
+      "Rock": {
+        "test": {
+          "tracks": 100,
+          "artists": 44,
+          "top1_share": 0.15,
+          "top5_share": 0.39,
+          "top_artists": {
+            "Throwing Muses": 15,
+            "Westy Reflector": 8,
+            "Waylon Thornton": 6,
+            "Connections": 5,
+            "The Sun Through A Telescope": 5
+          }
+        },
+        "training": {
+          "tracks": 800,
+          "artists": 361,
+          "top1_share": 0.02625,
+          "top5_share": 0.08625,
+          "top_artists": {
+            "Scott Holmes": 21,
+            "Jahzzar": 14,
+            "Atlantic Thrills": 12,
+            "Half Japanese": 11,
+            "et_": 11
+          }
+        },
+        "validation": {
+          "tracks": 100,
+          "artists": 43,
+          "top1_share": 0.21,
+          "top5_share": 0.43,
+          "top_artists": {
+            "The Vivisectors": 21,
+            "Kristin Hersh": 7,
+            "Milk Music": 6,
+            "Man Bites Dog": 5,
+            "Krebs": 4
+          }
+        }
+      }
+    }
+  }
+}
